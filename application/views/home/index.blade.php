@@ -10,8 +10,8 @@
 <body>
 	<div class="wrapper">
 		<header>
-			<h1>Laravel</h1>
-			<h2>A Framework For Web Artisans</h2>
+			<h1>Ruck</h1>
+			<h2>Where GTD meets Scrum</h2>
 
 			<p class="intro-text" style="margin-top: 45px;">
 			</p>

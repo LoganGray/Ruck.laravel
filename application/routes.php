@@ -37,6 +37,19 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
+
+/**
+ * Routes for the GTD controller. Explicit routes so as to avoid error
+ * handling in the controller methods.
+ */
+
+Route::get('gtd/task/(:num)/delete',	'gtd@task_delete');
+Route::get('gtd/task/(:num)/edit',		'gtd@task_edit');
+Route::get('gtd/task/(:num)',			'gtd@task_view');
+Route::get('gtd/task/new',				'gtd@task_create');
+Route::get('gtd/task',					'gtd@task_list');
+Route::get('gtd',						'gtd@index');
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
