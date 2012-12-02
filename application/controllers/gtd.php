@@ -9,7 +9,8 @@ class Gtd_Controller extends Base_Controller {
 	
 	public function action_task_list()
 	{
-		echo "This is the task list.";
+		$tasks = DB::table('tasks')->get();
+		return View::make('gtd.list')->with('tasks', $tasks);
 	}
 	
 	public function action_task_view($id)
