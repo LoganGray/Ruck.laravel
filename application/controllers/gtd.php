@@ -9,13 +9,14 @@ class Gtd_Controller extends Base_Controller {
 	
 	public function action_task_list()
 	{
-		$tasks = DB::table('tasks')->get();
+		$tasks = Ruck\Task::all();
 		return View::make('gtd.list')->with('tasks', $tasks);
 	}
 	
 	public function action_task_view($id)
 	{
-		echo "This is the task view for task #{$id}.";
+		$task = Ruck\Task::find($id);
+		return View::make('gtd.task')->with('task', $task);
 	}
 	
 	public function action_task_create()

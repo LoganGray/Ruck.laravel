@@ -6,13 +6,11 @@
 
 @section('content')
 	<h1>Task Lists</h1>
+	<p>Your current to-do list:</p>
 	<ul>
 		@foreach ($tasks as $task)
 		    <li>
-		    	<h2>{{ $task->description }}</h2>
-		    	@if ($task->notes)
-			    	<p>{{ $task->notes }}</p>
-			    @endif
+		    	<a href="/gtd/task/{{ $task->id }}">{{ $task->description }}</a>
 		    </li>
 		@endforeach
 	</ul>

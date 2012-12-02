@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title')</title>
+    <title>@yield('title') &#0183; GTD &#0183; Ruck</title>
 </head>
 <body>
     <div class="header">
