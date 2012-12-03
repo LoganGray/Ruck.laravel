@@ -14,7 +14,7 @@
     <h3>Current To-Dos</h3>
     <ul>
     	@foreach ($todos as $todo)
-    		<li><a href="/gtd/todo/{{ $todo->id }}">{{ $todo->description }}</a></li>
+    		<li><a href="/gtd/todo/{{ $todo->id }}">{{ $todo->description }}</a> <small><a href="/gtd/todo/{{ $todo->id }}/edit">Edit</a> | <a href="/gtd/todo/{{ $todo->id }}/delete">Delete</a></small></li>
     	@endforeach
     </ul>
 @endsection
