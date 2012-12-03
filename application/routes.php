@@ -59,6 +59,15 @@ Route::get('gtd/project',				'gtd.project@project_list');
 
 Route::get('gtd',						'gtd@index');
 
+/**
+ * View composers.
+ */
+
+View::composer('gtd.projects', function ($view)
+{
+    $view->with('projects', Ruck\Project::all());
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers

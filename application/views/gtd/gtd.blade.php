@@ -54,7 +54,7 @@
         </ul>
     </div>
     <div class="projects">
-    	Projects go here...
+    	<?php echo render('gtd.projects'); ?>
     </div>
     <div class="content">
 	    @yield('content')
