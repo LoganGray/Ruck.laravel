@@ -12,9 +12,7 @@
     @endif
     <p><a href="/gtd/project/{{ $project->id }}/edit">Edit</a> | <a href="/gtd/project/{{ $project->id }}/delete">Delete</a></p>
     <h3>Current To-Dos</h3>
-    <ul>
-    	@foreach ($todos as $todo)
-    		<li><a href="/gtd/todo/{{ $todo->id }}">{{ $todo->description }}</a> <small><a href="/gtd/todo/{{ $todo->id }}/edit">Edit</a> | <a href="/gtd/todo/{{ $todo->id }}/delete">Delete</a></small></li>
-    	@endforeach
-    </ul>
+	<ul>
+		{{ render_each('gtd/todo/single', $todos, 'todo') }}
+	</ul>
 @endsection

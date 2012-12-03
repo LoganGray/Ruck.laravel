@@ -27,6 +27,7 @@
     	}
     	.content {
     		margin: 20px;
+    		float: left;
     	}
     	form ol {
     		list-style: none;
@@ -35,6 +36,11 @@
     	label, select, input, textarea {
     		display: block;
     		width: 400px;
+    	}
+    	.projects {
+    		float: left;
+    		width: 200px;
+    		padding: 20px;
     	}
     </style>
 </head>
@@ -46,6 +52,9 @@
             <li><a href="/scrum/">Scrum</a></li>
         @yield_section
         </ul>
+    </div>
+    <div class="projects">
+    	Projects go here...
     </div>
     <div class="content">
 	    @yield('content')
