@@ -18,10 +18,17 @@ class Gtd_Todo_Controller extends Base_Controller {
 	public function action_todo_create()
 	{
 		$projects = Ruck\Project::all();
-		return View::make('gtd.todo.create')->with('projects', $projects);
+		return View::make('gtd.todo.form')->with('projects', $projects);
 	}
 
-	public function action_todo_insert()
+	public function action_todo_edit($id)
+	{
+		$todo = Ruck\Todo::find($id);
+		$projects = Ruck\Project::all();
+		return View::make('gtd.todo.form')->with('todo', $todo)->with('projects', $projects);
+	}
+
+	public function action_todo_update()
 	{
 		$input = Input::get();
 		$rules = array(
@@ -32,26 +39,28 @@ class Gtd_Todo_Controller extends Base_Controller {
 		
 		if ($v->fails())
 		{
-			return Redirect::to('gtd/todo/new')->with_input();
+			return Redirect::back()->with_input();
 		}
 		else
 		{
-			$todo = array(
-				'description' => Input::get('description'),
-				'notes' => Input::get('notes'),
+			$data = array(
+				'description'	=> Input::get('description'),
+				'notes'			=> Input::get('notes'),
 			);
-
-			$project = Ruck\Project::find(Input::get('project'));
-			$project->todos()->insert($todo);
+			
+			if (Input::get('id'))
+			{
+				$todo = Ruck\Todo::find(Input::get('id'));
+				$todo->fill($data)->save();
+			}
+			else
+			{
+				$project = Ruck\Project::find(Input::get('project'));
+				$project->todos()->insert($data);
+			}
 
 			return Redirect::to('gtd/todo');
 		}
-	}
-
-	public function action_todo_edit($id)
-	{
-		$todo = Ruck\Todo::find($id);
-		return View::make('gtd.todo.edit')->with('todo', $todo);
 	}
 
 	public function action_todo_delete($id)

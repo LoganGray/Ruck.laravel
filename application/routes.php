@@ -45,9 +45,10 @@ Route::get('/', function()
 
 Route::get('gtd/todo/(:num)/delete',	'gtd.todo@todo_delete');
 Route::get('gtd/todo/(:num)/edit',		'gtd.todo@todo_edit');
+Route::post('gtd/todo/(:num)/edit',		'gtd.todo@todo_update');
 Route::get('gtd/todo/(:num)',			'gtd.todo@todo_view');
 Route::get('gtd/todo/new',				'gtd.todo@todo_create');
-Route::post('gtd/todo/new',				'gtd.todo@todo_insert');
+Route::post('gtd/todo/new',				'gtd.todo@todo_update');
 Route::get('gtd/todo',					'gtd.todo@todo_list');
 
 Route::get('gtd/project/(:num)/delete',	'gtd.project@project_delete');
