@@ -7,6 +7,7 @@
 @section('content')
 	<h1>To-Do Detail</h1>
 	<h2>{{ $todo->description }}</h2>
+	<p><small>Part of the <em>{{ $project->name }}</em> project</small></p>
 	@if ($todo->notes)
     	<p>{{ $todo->notes }}</p>
     @endif

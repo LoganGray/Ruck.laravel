@@ -11,7 +11,8 @@ class Gtd_Todo_Controller extends Base_Controller {
 	public function action_todo_view($id)
 	{
 		$todo = Ruck\Todo::find($id);
-		return View::make('gtd.todo.details')->with('todo', $todo);
+		$project = $todo->project;
+		return View::make('gtd.todo.details')->with('todo', $todo)->with('project', $project);
 	}
 	
 	public function action_todo_create()
