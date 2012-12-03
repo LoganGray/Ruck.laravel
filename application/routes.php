@@ -67,6 +67,14 @@ Route::get('gtd/status/new',			'gtd.status@status_create');
 Route::post('gtd/status/new',			'gtd.status@status_update');
 Route::get('gtd/status',				'gtd.status@status_list');
 
+Route::get('gtd/context/(:num)/delete',	'gtd.context@context_delete');
+Route::get('gtd/context/(:num)/edit',	'gtd.context@context_edit');
+Route::post('gtd/context/(:num)/edit',	'gtd.context@context_update');
+Route::get('gtd/context/(:num)',		'gtd.context@context_view');
+Route::get('gtd/context/new',			'gtd.context@context_create');
+Route::post('gtd/context/new',			'gtd.context@context_update');
+Route::get('gtd/context',				'gtd.context@context_list');
+
 Route::get('gtd',						'gtd@index');
 
 /**

@@ -43,6 +43,9 @@ class Gtd_Todo_Controller extends Base_Controller {
 			$data = array(
 				'description'	=> Input::get('description'),
 				'notes'			=> Input::get('notes'),
+				'project_id'	=> Input::get('project'),
+				'status_id'		=> Input::get('status'),
+				'context_id'	=> Input::get('context'),
 			);
 			
 			if (Input::get('id'))
@@ -52,8 +55,8 @@ class Gtd_Todo_Controller extends Base_Controller {
 			}
 			else
 			{
-				$project = Ruck\Project::find(Input::get('project'));
-				$project->todos()->insert($data);
+				$todo = new Todo();
+				$todo->fill($data)->save();
 			}
 
 			return Redirect::to('gtd/todo');
