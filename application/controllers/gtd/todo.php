@@ -15,17 +15,14 @@ class Gtd_Todo_Controller extends Base_Controller {
 		return View::make('gtd.todo.details')->with('todo', $todo)->with('project', $project);
 	}
 	
-	public function action_todo_create($id)
+	public function action_todo_create($project_id)
 	{
-		$projects = Ruck\Project::all();
-		return View::make('gtd.todo.form')->with('projects', $projects)->with('id', $id);
+		return View::make('gtd.todo.form')->with('project_id', $project_id);
 	}
 
 	public function action_todo_edit($id)
 	{
-		$todo = Ruck\Todo::find($id);
-		$projects = Ruck\Project::all();
-		return View::make('gtd.todo.form')->with('todo', $todo)->with('projects', $projects);
+		return View::make('gtd.todo.form')->with('todo', Ruck\Todo::find($id));
 	}
 
 	public function action_todo_update()

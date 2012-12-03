@@ -59,15 +59,33 @@ Route::get('gtd/project/new',			'gtd.project@project_create');
 Route::post('gtd/project/new',			'gtd.project@project_update');
 Route::get('gtd/project',				'gtd.project@project_list');
 
+Route::get('gtd/status/(:num)/delete',	'gtd.status@status_delete');
+Route::get('gtd/status/(:num)/edit',	'gtd.status@status_edit');
+Route::post('gtd/status/(:num)/edit',	'gtd.status@status_update');
+Route::get('gtd/status/(:num)',			'gtd.status@status_view');
+Route::get('gtd/status/new',			'gtd.status@status_create');
+Route::post('gtd/status/new',			'gtd.status@status_update');
+Route::get('gtd/status',				'gtd.status@status_list');
+
 Route::get('gtd',						'gtd@index');
 
 /**
  * View composers.
  */
 
+// The sidebar contains a list of all projects.
 View::composer('gtd.projects', function ($view)
 {
     $view->with('projects', Ruck\Project::all());
+});
+
+// The Todo form needs all the projects, statuses and contexts available to it.
+View::composer('gtd.todo.form', function ($view)
+{
+    $view
+    	->with('projects', Ruck\Project::all())
+    	->with('statuses', Ruck\Status::where_type('todo')->get())
+    	->with('contexts', Ruck\Context::all());
 });
 
 /*

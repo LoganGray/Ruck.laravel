@@ -44,10 +44,36 @@
 				<option>Select a project:</option>
 				@foreach ($projects as $project)
 					<option value="{{ $project->id }}"
-					@if ((isset($todo) && $todo->project_id == $project->id) || (isset($id) && $id == $project->id))
+					@if ((isset($todo) && $todo->project_id == $project->id) || (isset($project_id) && $project_id == $project->id))
 						selected="selected"
 					@endif
 					>{{ $project->name }}</option>
+				@endforeach
+			</select>
+		</li>
+		<li>
+			<?php echo Form::label('status', 'Status'); ?>
+			<select name="status" id="status">
+				<option>Choose status:</option>
+				@foreach ($statuses as $status)
+					<option value="{{ $status->id }}"
+					@if (isset($todo) && $todo->status_id == $status->id)
+						selected="selected"
+					@endif
+					>{{ $status->name }}</option>
+				@endforeach
+			</select>
+		</li>
+		<li>
+			<?php echo Form::label('context', 'Context'); ?>
+			<select name="context" id="context">
+				<option>Choose context:</option>
+				@foreach ($contexts as $context)
+					<option value="{{ $context->id }}"
+					@if (isset($todo) && $todo->context_id == $context->id)
+						selected="selected"
+					@endif
+					>{{ $context->name }}</option>
 				@endforeach
 			</select>
 		</li>
