@@ -17,10 +17,10 @@ class Gtd_Project_Controller extends Base_Controller {
 	
 	public function action_project_create()
 	{
-		return View::make('gtd.project.create');
+		return View::make('gtd.project.form');
 	}
 
-	public function action_project_insert()
+	public function action_project_update()
 	{
 		$input = Input::get();
 		$rules = array(
@@ -35,10 +35,20 @@ class Gtd_Project_Controller extends Base_Controller {
 		}
 		else
 		{
-			$project = new Ruck\Project();
-			$project->name = Input::get('name');
-			$project->description = Input::get('description');
-			$project->save();
+			$data = array(
+				'name'			=> Input::get('name'),
+				'description'	=> Input::get('description'),
+			);
+			if (Input::get('id'))
+			{
+				$project = Ruck\Project::find(Input::get('id'));
+				$project->fill($data)->save();
+			}
+			else
+			{
+				$project = new Ruck\Project();
+				$project->fill($data)->save();
+			}
 			return Redirect::to('gtd/project');
 		}
 	}
@@ -46,7 +56,7 @@ class Gtd_Project_Controller extends Base_Controller {
 	public function action_project_edit($id)
 	{
 		$project = Ruck\Project::find($id);
-		return View::make('gtd.project.edit')->with('project', $project);
+		return View::make('gtd.project.form')->with('project', $project);
 	}
 
 	public function action_project_delete($id)
