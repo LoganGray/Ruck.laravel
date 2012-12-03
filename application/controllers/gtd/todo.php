@@ -55,7 +55,7 @@ class Gtd_Todo_Controller extends Base_Controller {
 			}
 			else
 			{
-				$todo = new Todo();
+				$todo = new Ruck\Todo();
 				$todo->fill($data)->save();
 			}
 
