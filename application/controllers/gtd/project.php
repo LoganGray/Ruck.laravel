@@ -20,6 +20,12 @@ class Gtd_Project_Controller extends Base_Controller {
 		return View::make('gtd.project.form');
 	}
 
+	public function action_project_edit($id)
+	{
+		$project = Ruck\Project::find($id);
+		return View::make('gtd.project.form')->with('project', $project);
+	}
+
 	public function action_project_update()
 	{
 		$input = Input::get();
@@ -51,12 +57,6 @@ class Gtd_Project_Controller extends Base_Controller {
 			}
 			return Redirect::to('gtd/project');
 		}
-	}
-
-	public function action_project_edit($id)
-	{
-		$project = Ruck\Project::find($id);
-		return View::make('gtd.project.form')->with('project', $project);
 	}
 
 	public function action_project_delete($id)
