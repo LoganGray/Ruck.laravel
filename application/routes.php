@@ -47,6 +47,7 @@ Route::get('gtd/task/(:num)/delete',	'gtd@task_delete');
 Route::get('gtd/task/(:num)/edit',		'gtd@task_edit');
 Route::get('gtd/task/(:num)',			'gtd@task_view');
 Route::get('gtd/task/new',				'gtd@task_create');
+Route::post('gtd/task/new',				'gtd@task_insert');
 Route::get('gtd/task',					'gtd@task_list');
 Route::get('gtd',						'gtd@index');
 

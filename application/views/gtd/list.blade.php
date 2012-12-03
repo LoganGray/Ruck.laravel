@@ -14,4 +14,5 @@
 		    </li>
 		@endforeach
 	</ul>
+	<p><a href="/gtd/task/new">Add new task</a></p>
 @endsection

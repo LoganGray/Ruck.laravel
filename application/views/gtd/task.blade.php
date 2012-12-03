@@ -10,4 +10,5 @@
 	@if ($task->notes)
     	<p>{{ $task->notes }}</p>
     @endif
+    <p><a href="/gtd/task/{{ $task->id }}/edit">Edit</a> | <a href="/gtd/task/{{ $task->id }}/delete">Delete</a></p>
 @endsection

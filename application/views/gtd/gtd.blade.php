@@ -8,8 +8,8 @@
     <div class="header">
         <ul>
         @section('navigation')
-            <li><a href="#">GTD</a></li>
-            <li><a href="#">Scrum</a></li>
+            <li><a href="/gtd/">GTD</a></li>
+            <li><a href="/scrum/">Scrum</a></li>
         @yield_section
         </ul>
     </div>
