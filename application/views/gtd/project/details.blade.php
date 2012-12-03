@@ -15,4 +15,5 @@
 	<ul>
 		{{ render_each('gtd/todo/single', $todos, 'todo') }}
 	</ul>
+	<p><a href="/gtd/todo/new/{{ $project->id }}">Create new todo</a></p>
 @endsection

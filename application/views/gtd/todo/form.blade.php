@@ -44,7 +44,7 @@
 				<option>Select a project:</option>
 				@foreach ($projects as $project)
 					<option value="{{ $project->id }}"
-					@if (isset($todo) && $todo->project_id == $project->id)
+					@if ((isset($todo) && $todo->project_id == $project->id) || (isset($id) && $id == $project->id))
 						selected="selected"
 					@endif
 					>{{ $project->name }}</option>
