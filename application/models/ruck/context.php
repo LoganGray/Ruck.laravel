@@ -2,7 +2,7 @@
 
 use Eloquent;
 
-class Task extends Eloquent
+class Context extends Eloquent
 {
 
 	public static $timestamps = true;

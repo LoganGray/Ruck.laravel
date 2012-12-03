@@ -32,7 +32,7 @@
     		list-style: none;
     		padding: 0;
     	}
-    	label, input, textarea {
+    	label, select, input, textarea {
     		display: block;
     		width: 400px;
     	}

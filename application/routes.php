@@ -43,12 +43,20 @@ Route::get('/', function()
  * handling in the controller methods.
  */
 
-Route::get('gtd/task/(:num)/delete',	'gtd.task@task_delete');
-Route::get('gtd/task/(:num)/edit',		'gtd.task@task_edit');
-Route::get('gtd/task/(:num)',			'gtd.task@task_view');
-Route::get('gtd/task/new',				'gtd.task@task_create');
-Route::post('gtd/task/new',				'gtd.task@task_insert');
-Route::get('gtd/task',					'gtd.task@task_list');
+Route::get('gtd/todo/(:num)/delete',	'gtd.todo@todo_delete');
+Route::get('gtd/todo/(:num)/edit',		'gtd.todo@todo_edit');
+Route::get('gtd/todo/(:num)',			'gtd.todo@todo_view');
+Route::get('gtd/todo/new',				'gtd.todo@todo_create');
+Route::post('gtd/todo/new',				'gtd.todo@todo_insert');
+Route::get('gtd/todo',					'gtd.todo@todo_list');
+
+Route::get('gtd/project/(:num)/delete',	'gtd.project@project_delete');
+Route::get('gtd/project/(:num)/edit',	'gtd.project@project_edit');
+Route::get('gtd/project/(:num)',		'gtd.project@project_view');
+Route::get('gtd/project/new',			'gtd.project@project_create');
+Route::post('gtd/project/new',			'gtd.project@project_insert');
+Route::get('gtd/project',				'gtd.project@project_list');
+
 Route::get('gtd',						'gtd@index');
 
 /*
