@@ -89,6 +89,12 @@ View::composer('gtd.projects', function ($view)
     $view->with('projects', Ruck\Project::all());
 });
 
+// The top navigation contains a list of all contexts.
+View::composer('gtd.contexts', function ($view)
+{
+    $view->with('contexts', Ruck\Context::all());
+});
+
 // The Todo form needs all the projects, statuses and contexts available to it.
 View::composer('gtd.todo.form', function ($view)
 {

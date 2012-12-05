@@ -39,6 +39,7 @@
     	}
     	.projects {
     		float: left;
+    		clear: left;
     		width: 200px;
     		padding: 20px;
     	}
@@ -46,7 +47,7 @@
     		list-style: none;
     		padding: 0;
     	}
-    	.todos li:first-child {
+    	.sortable li:first-child {
     		background: #ff0;
     	}
     	.todos a {
@@ -62,6 +63,23 @@
     		margin-right: 5px;
     		width: auto;
     	}
+    	.contexts ul {
+    		list-style: none;
+    		margin-left: 260px;
+    		padding: 0;
+    	}
+    	.contexts a {
+    		text-decoration: none;
+    		font-size: 12px;
+    		background: #eee;
+    		padding: 5px 10px;
+    		float: left;
+    		margin-right: 10px;
+    		border-radius: 10px;
+    	}
+    	.contexts a:hover {
+    		background: #ccc;
+    	}
     </style>
 </head>
 <body>
@@ -72,6 +90,9 @@
             <li><a href="/scrum/">Scrum</a></li>
         @yield_section
         </ul>
+    </div>
+    <div class="contexts">
+    	<?php echo render('gtd.contexts'); ?>
     </div>
     <div class="projects">
     	<?php echo render('gtd.projects'); ?>
@@ -84,7 +105,7 @@
 	<script src="/j/vendor/jquery-ui-1.9.2.custom.js"></script>
 	<script>
 		$(function () {
-			$(".todos").sortable({
+			$(".sortable").sortable({
 				revert: true,
 				update: function (event, ui) {
 					$.ajax({
