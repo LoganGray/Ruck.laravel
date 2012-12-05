@@ -1,14 +1,13 @@
 @layout('gtd/gtd')
 
 @section('title')
-	Lists
+	Your Tasks
 @endsection
 
 @section('content')
-	<h1>To-Do Lists</h1>
-	<p>Your current to-do list:</p>
-	<ul>
+	<h1>Your Tasks</h1>
+	<p>Your current next actions:</p>
+	<ul class="todos">
 		{{ render_each('gtd/todo/single', $todos, 'todo') }}
 	</ul>
-	<p><a href="/gtd/todo/new">Add new task</a></p>
 @endsection

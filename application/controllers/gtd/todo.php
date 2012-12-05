@@ -2,9 +2,17 @@
 
 class Gtd_Todo_Controller extends Base_Controller {
 
+	/**
+	 * The main page. Lists all Next actions, one from each project.
+	 */
 	public function action_todo_list()
 	{
-		$todos = Ruck\Todo::all();
+		$projects = Ruck\Project::all();
+		$todos = array();
+		foreach ($projects as $project)
+		{
+			$todos = array_merge($todos, Ruck\Todo::where('project_id', '=', $project->id)->take(1)->get());
+		}
 		return View::make('gtd.todo.list')->with('todos', $todos);
 	}
 	
@@ -59,15 +67,16 @@ class Gtd_Todo_Controller extends Base_Controller {
 				$todo->fill($data)->save();
 			}
 
-			return Redirect::to('gtd/todo');
+			return Redirect::to('gtd/project/' . $data['project_id']);
 		}
 	}
 
 	public function action_todo_delete($id)
 	{
 		$todo = Ruck\Todo::find($id);
+		$project = $todo->project;
 		$todo->delete();
-		return Redirect::back();
+		return Redirect::to('/gtd/project/' . $project->id);
 	}
 
 }

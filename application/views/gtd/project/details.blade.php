@@ -12,7 +12,7 @@
     @endif
     <p><a href="/gtd/project/{{ $project->id }}/edit">Edit</a> | <a href="/gtd/project/{{ $project->id }}/delete">Delete</a></p>
     <h3>Current To-Dos</h3>
-	<ul>
+	<ul class="todos">
 		{{ render_each('gtd/todo/single', $todos, 'todo') }}
 	</ul>
 	<p><a href="/gtd/todo/new/{{ $project->id }}">Create new todo</a></p>

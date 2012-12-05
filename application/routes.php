@@ -43,6 +43,7 @@ Route::get('/', function()
  * handling in the controller methods.
  */
 
+// Regular routes. 
 Route::get('gtd/todo/(:num)/delete',	'gtd.todo@todo_delete');
 Route::get('gtd/todo/(:num)/edit',		'gtd.todo@todo_edit');
 Route::post('gtd/todo/(:num)/edit',		'gtd.todo@todo_update');
@@ -57,6 +58,7 @@ Route::post('gtd/project/(:num)/edit',	'gtd.project@project_update');
 Route::get('gtd/project/(:num)',		'gtd.project@project_view');
 Route::get('gtd/project/new',			'gtd.project@project_create');
 Route::post('gtd/project/new',			'gtd.project@project_update');
+Route::put('gtd/project/order',			'gtd.project@update_todo_order'); // Ajax request.
 Route::get('gtd/project',				'gtd.project@project_list');
 
 Route::get('gtd/status/(:num)/delete',	'gtd.status@status_delete');
@@ -75,7 +77,7 @@ Route::get('gtd/context/new',			'gtd.context@context_create');
 Route::post('gtd/context/new',			'gtd.context@context_update');
 Route::get('gtd/context',				'gtd.context@context_list');
 
-Route::get('gtd',						'gtd@index');
+Route::get('gtd',						'gtd.todo@todo_list');
 
 /**
  * View composers.

@@ -42,6 +42,26 @@
     		width: 200px;
     		padding: 20px;
     	}
+    	.todos {
+    		list-style: none;
+    		padding: 0;
+    	}
+    	.todos li:first-child {
+    		background: #ff0;
+    	}
+    	.todos a {
+    		display: block;
+    		text-decoration: none;
+    		padding: 5px;
+    	}
+    	.todos a:hover {
+    		background: #eee;
+    	}
+    	.todos input {
+    		display: inline;
+    		margin-right: 5px;
+    		width: auto;
+    	}
     </style>
 </head>
 <body>
@@ -59,5 +79,28 @@
     <div class="content">
 	    @yield('content')
     </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="/j/vendor/jquery-1.8.3.js"><\/script>')</script>
+	<script src="/j/vendor/jquery-ui-1.9.2.custom.js"></script>
+	<script>
+		$(function () {
+			$(".todos").sortable({
+				revert: true,
+				update: function (event, ui) {
+					$.ajax({
+						data: {
+							project_id	: $('#project_id').val(),
+							new_order	: $('.todos').sortable('toArray')
+						},
+						error: function () {
+							
+						},
+						type: 'PUT',
+						url: '/gtd/project/order'
+					});
+				}
+			});
+		});
+	</script>
 </body>
 </html>
