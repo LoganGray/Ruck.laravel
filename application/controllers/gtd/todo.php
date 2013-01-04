@@ -23,7 +23,7 @@ class Gtd_Todo_Controller extends Base_Controller {
 		return View::make('gtd.todo.details')->with('todo', $todo)->with('project', $project);
 	}
 	
-	public function action_todo_create($project_id)
+	public function action_todo_create($project_id = '')
 	{
 		return View::make('gtd.todo.form')->with('project_id', $project_id);
 	}
@@ -63,8 +63,31 @@ class Gtd_Todo_Controller extends Base_Controller {
 			}
 			else
 			{
-				$todo = new Ruck\Todo();
-				$todo->fill($data)->save();
+				/**
+				 * If a project_id exists, then the task is being added to an existing
+				 * project. If not, we also need to create a new project and connect it
+				 * to this new task as a single-item project.
+				 */
+				if (Input::get('project_id'))
+				{
+					$todo = new Ruck\Todo();
+					$todo->fill($data)->save();
+				}
+				else
+					{
+						// Create the new Project.
+						$project = new Ruck\Project();
+						$project->fill(array(
+							'name'			=> Input::get('description'),
+							'description'	=> Input::get('notes'),
+						))->save();
+						// Create the new Todo using the new Project id.
+						$todo = new Ruck\Todo();
+						$todo->fill($data);
+						$project->todos()->insert($todo);
+						// Set a project_id to return to.
+						$data['project_id'] = $project->id;
+					}
 			}
 
 			return Redirect::to('gtd/project/' . $data['project_id']);

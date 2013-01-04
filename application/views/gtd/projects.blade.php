@@ -4,4 +4,4 @@
 	@endforeach
 </ul>
 
-<p><a href="/gtd/project/new">Add Project</a></p>
+<p><a href="/gtd/project/new">Add Project</a> | <a href="/gtd/todo/new">Add Single Task</a></p>
