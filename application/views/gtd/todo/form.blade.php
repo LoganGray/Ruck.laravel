@@ -57,7 +57,7 @@
 				<option>Choose status:</option>
 				@foreach ($statuses as $status)
 					<option value="{{ $status->id }}"
-					@if (isset($todo) && $todo->status_id == $status->id)
+					@if ((isset($todo) && $todo->status_id == $status->id) || (!isset($todo) && $status->id == 1))
 						selected="selected"
 					@endif
 					>{{ $status->name }}</option>
