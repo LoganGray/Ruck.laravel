@@ -86,13 +86,13 @@ Route::get('gtd',						'gtd.todo@todo_list');
 // The sidebar contains a list of all projects.
 View::composer('gtd.projects', function ($view)
 {
-    $view->with('projects', Ruck\Project::all());
+    $view->with('projects', Ruck\Project::order_by('name')->get());
 });
 
 // The top navigation contains a list of all contexts.
 View::composer('gtd.contexts', function ($view)
 {
-    $view->with('contexts', Ruck\Context::all());
+    $view->with('contexts', Ruck\Context::order_by('name')->get());
 });
 
 // The Todo form needs all the projects, statuses and contexts available to it.
