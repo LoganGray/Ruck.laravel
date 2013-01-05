@@ -51,6 +51,7 @@ class Gtd_Todo_Controller extends Base_Controller {
 			$data = array(
 				'description'	=> Input::get('description'),
 				'notes'			=> Input::get('notes'),
+				'due'			=> (Input::get('due')) ? new DateTime(Input::get('due')) : NULL,
 				'project_id'	=> Input::get('project'),
 				'status_id'		=> Input::get('status'),
 				'context_id'	=> Input::get('context'),
@@ -68,7 +69,7 @@ class Gtd_Todo_Controller extends Base_Controller {
 				 * project. If not, we also need to create a new project and connect it
 				 * to this new task as a single-item project.
 				 */
-				if (Input::get('project_id'))
+				if (Input::get('project'))
 				{
 					$todo = new Ruck\Todo();
 					$todo->fill($data)->save();

@@ -31,6 +31,14 @@
 			@endif
 		</li>
 		<li>
+			<?php echo Form::label('due', 'Due Date'); ?>
+			@if (isset($todo))
+			    <?php echo Form::text('due', $todo->due); ?>
+			@else
+			    <?php echo Form::text('due', Input::old('due')); ?>
+			@endif
+		</li>
+		<li>
 		    <?php echo Form::label('notes', 'Notes'); ?>
 			@if (isset($todo))
 			    <?php echo Form::textarea('notes', $todo->notes); ?>

@@ -1,0 +1,93 @@
+body {
+	font: 14px/20px Helvetica, Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+}
+.header {
+	border-bottom: 1px solid #333;
+	overflow: hidden;
+}
+.header ul {
+	list-style: none;
+	padding: 0 20px;
+}
+.header a {
+	float: left;
+	padding: 5px 10px;
+	background: #333;
+	color: #fff;
+	margin-right: 10px;
+	text-decoration: none;
+}
+.content {
+	margin: 20px;
+	float: left;
+}
+form ol {
+	list-style: none;
+	padding: 0;
+}
+label, select, input, textarea {
+	display: block;
+	width: 400px;
+}
+.projects {
+	float: left;
+	clear: left;
+	width: 200px;
+	padding: 20px;
+}
+.todos {
+	list-style: none;
+	padding: 0;
+}
+.sortable li:first-child {
+	background: #ff0;
+}
+.todos a {
+	display: block;
+	text-decoration: none;
+	padding: 5px;
+}
+.todos a:hover {
+	background: #eee;
+}
+.todos input {
+	display: inline;
+	margin-right: 5px;
+	width: auto;
+}
+.contexts ul {
+	list-style: none;
+	margin-left: 260px;
+	padding: 0;
+}
+.contexts a {
+	text-decoration: none;
+	font-size: 12px;
+	background: #eee;
+	padding: 5px 10px;
+	float: left;
+	margin-right: 10px;
+	border-radius: 10px;
+}
+.contexts a:hover {
+	background: #ccc;
+}
+
+#due {
+	width: 50%;
+	display: inline;
+}
+
+#ui-datepicker-div {
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.ui-datepicker-trigger {
+	background: none;
+	border: 0;
+	cursor: pointer;
+}
