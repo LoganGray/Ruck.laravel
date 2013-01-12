@@ -49,7 +49,7 @@
 		<li>
 			<?php echo Form::label('project', 'Project'); ?>
 			<select name="project" id="project">
-				<option>Select a project:</option>
+				<option value="">Select a project:</option>
 				@foreach ($projects as $project)
 					<option value="{{ $project->id }}"
 					@if ((isset($todo) && $todo->project_id == $project->id) || (isset($project_id) && $project_id == $project->id))
@@ -62,7 +62,7 @@
 		<li>
 			<?php echo Form::label('status', 'Status'); ?>
 			<select name="status" id="status">
-				<option>Choose status:</option>
+				<option value="">Choose status:</option>
 				@foreach ($statuses as $status)
 					<option value="{{ $status->id }}"
 					@if ((isset($todo) && $todo->status_id == $status->id) || (!isset($todo) && $status->id == 1))
@@ -74,16 +74,16 @@
 		</li>
 		<li>
 			<?php echo Form::label('context', 'Context'); ?>
-			<select name="context" id="context">
-				<option>Choose context:</option>
-				@foreach ($contexts as $context)
-					<option value="{{ $context->id }}"
+			@foreach ($contexts as $context)
+				<label class="radio">
+					<input type="radio" name="context" value="{{ $context->id }}"
 					@if (isset($todo) && $todo->context_id == $context->id)
-						selected="selected"
+						checked="checked"
 					@endif
-					>{{ $context->name }}</option>
-				@endforeach
-			</select>
+					>
+					{{ $context->name }}
+				</label>
+			@endforeach
 		</li>
 	</ol>
 	<div>
@@ -91,3 +91,9 @@
 	</div>
 	<?php echo Form::close(); ?>
 @endsection
+
+<script>
+	window.onload = function () {
+		document.getElementById('description').focus();
+	}
+</script>

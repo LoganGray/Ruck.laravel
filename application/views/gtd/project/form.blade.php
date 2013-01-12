@@ -44,3 +44,9 @@
 	</div>
 	<?php echo Form::close(); ?>
 @endsection
+
+<script>
+	window.onload = function () {
+		document.getElementById('name').focus();
+	}
+</script>

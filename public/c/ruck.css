@@ -31,6 +31,14 @@ label, select, input, textarea {
 	display: block;
 	width: 400px;
 }
+.radio {
+	display: inline;
+	margin-right: 10px;
+}
+.radio input {
+	display: inline;
+	width: auto;
+}
 .projects {
 	float: left;
 	clear: left;

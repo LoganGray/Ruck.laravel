@@ -4,7 +4,7 @@ class Gtd_Project_Controller extends Base_Controller {
 
 	public function action_project_list()
 	{
-		$projects = Ruck\Project::all();
+		$projects = Ruck\Project::order_by('name')->get();
 		return View::make('gtd.project.list')->with('projects', $projects);
 	}
 	
@@ -62,6 +62,7 @@ class Gtd_Project_Controller extends Base_Controller {
 	public function action_project_delete($id)
 	{
 		$project = Ruck\Project::find($id);
+		// TODO: Handle orphaned tasks under deleted projects.
 		$project->delete();
 		return Redirect::to('gtd/project');
 	}
