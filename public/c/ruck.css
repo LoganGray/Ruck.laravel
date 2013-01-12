@@ -49,13 +49,16 @@ label, select, input, textarea {
 	list-style: none;
 	padding: 0;
 }
+.todos li {
+	position: relative;
+}
 .sortable li:first-child {
 	background: #ff0;
 }
 .todos a {
 	display: block;
 	text-decoration: none;
-	padding: 5px;
+	padding: 5px 100px 5px 5px;
 }
 .todos a:hover {
 	background: #eee;
@@ -64,6 +67,16 @@ label, select, input, textarea {
 	display: inline;
 	margin-right: 5px;
 	width: auto;
+}
+.todos small {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+.todos small a {
+	display: inline;
+	padding: 0;
+	text-decoration: underline;
 }
 .contexts ul {
 	list-style: none;
