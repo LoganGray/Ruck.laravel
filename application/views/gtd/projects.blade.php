@@ -1,3 +1,5 @@
+<h2>Projects List</h2>
+
 <ul>
 	@foreach ($projects as $project)
 		<li><a href="/gtd/project/{{ $project->id }}">{{ $project->name }}</a></li>

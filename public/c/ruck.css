@@ -3,6 +3,9 @@ body {
 	margin: 0;
 	padding: 0;
 }
+a {
+	color: #09c;
+}
 .header {
 	border-bottom: 1px solid #333;
 	overflow: hidden;
@@ -44,6 +47,18 @@ label, select, input, textarea {
 	clear: left;
 	width: 200px;
 	padding: 20px;
+}
+.projects ul {
+	list-style: none;
+	padding: 0;
+}
+.projects li a {
+	text-decoration: none;
+	display: block;
+	padding: 2px 5px;
+}
+.projects li a:hover {
+	background: #ddd;
 }
 .todos {
 	list-style: none;
