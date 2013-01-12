@@ -42,7 +42,7 @@ return array(
 	|
 	*/
 
-	'default' => 'mysql',
+	'default' => 'development',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -61,12 +61,23 @@ return array(
 
 	'connections' => array(
 
-		'mysql' => array(
+		'development' => array(
 			'driver'   => 'mysql',
 			'host'     => 'localhost',
 			'database' => 'ruck',
 			'username' => 'root',
 			'password' => 'root',
+			'charset'  => 'utf8',
+			'prefix'   => '',
+			'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
+		),
+
+		'live' => array(
+			'driver'   => 'mysql',
+			'host'     => 'internal-db.s313.gridserver.com',
+			'database' => 'db313_ruck',
+			'username' => 'db313_ruck_user',
+			'password' => 'notasecret',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 			'unix_socket' => '/Applications/MAMP/tmp/mysql/mysql.sock',
