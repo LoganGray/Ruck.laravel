@@ -7,14 +7,16 @@ class Todo extends Eloquent
 
 	public static $timestamps = true;
 	
+	public $includes = array('context');
+	
 	public function status()
 	{
-		return $this->has_one('Ruck\Status');
+		return $this->belongs_to('Ruck\Status');
 	}
 	
 	public function context()
 	{
-		return $this->has_one('Ruck\Context');
+		return $this->belongs_to('Ruck\Context');
 	}
 	
 	public function project()

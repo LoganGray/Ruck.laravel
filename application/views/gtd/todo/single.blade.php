@@ -9,6 +9,7 @@
 		@endif
 		{{ $todo->description }}
 	</a>
+	<a href="/gtd/context/{{ $todo->context->id }}" class="todo-context">{{ $todo->context->name }}</a>
 	<small style="font-size: 75%;">
 		<a href="/gtd/todo/{{ $todo->id }}/edit">Edit</a>
 		|

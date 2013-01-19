@@ -66,17 +66,25 @@ label, select, input, textarea {
 }
 .todos li {
 	position: relative;
+	padding: 5px 100px 5px 5px;
 }
 .sortable li:first-child {
 	background: #ff0;
 }
-.todos a {
-	display: block;
-	text-decoration: none;
-	padding: 5px 100px 5px 5px;
-}
-.todos a:hover {
+.todos li:hover {
 	background: #eee;
+}
+.todos a {
+	display: inline;
+	text-decoration: none;
+}
+.todo-context {
+	color: #999;
+	font-size: 0.9em;
+}
+.todo-context:hover {
+	background: #999;
+	color: #fff;
 }
 .todos input {
 	display: inline;

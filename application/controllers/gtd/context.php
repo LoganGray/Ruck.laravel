@@ -11,7 +11,12 @@ class Gtd_Context_Controller extends Base_Controller {
 	public function action_context_view($id)
 	{
 		$context = Ruck\Context::find($id);
-		$todos = $context->todos;
+		$projects = Ruck\Project::all();
+		$todos = array();
+		foreach ($projects as $project)
+		{
+			$todos = array_merge($todos, Ruck\Todo::where('project_id', '=', $project->id)->where('context_id', '=', $id)->take(1)->get());
+		}
 		return View::make('gtd.context.details')->with('context', $context)->with('todos', $todos);
 	}
 	
